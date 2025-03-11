@@ -79,7 +79,7 @@ Tarif : 500 € HT / 600 € TTC
 
 ## Le déroulement
 
-1. Inscris toi sur [le serveur discord](https://discord.gg/rnXkTejqKw). 
+1. Inscris toi sur [le serveur discord](https://discord.gg/bSgTv36CAs). 
 2. Si tu souhaites avoir des options supplémentaires, achète l'un des pass suivants : 
 	1. [Pass Platinium](https://buy.stripe.com/9AQeWlcIOgsn6IgcMP)
 	2. [Pass Diamant](https://buy.stripe.com/7sI9C11060tpaYw002)
