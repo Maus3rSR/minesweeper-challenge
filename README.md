@@ -38,15 +38,13 @@ Chaque semaine, je vais proposer des contraintes dans la réalisation de ce chal
 
 ### Bronze - Les contraintes
 
-Tu peux simplement faire le challenge dans ton coin, en suivant ce PDF. C'est un excellent moyen d'apprendre TDD.
-
+Tu peux simplement faire le challenge dans ton coin, en suivant les consignes écrites ici. C'est un excellent moyen d'apprendre TDD.
 Tu auras accès au discord sans interaction possible afin de recevoir les contraintes hebdomadaires pour rajouter du piquant à ton aventure.
 
 Tarif : 0 € HT
 ### Argent - Interaction avec les pairs
 
 Tu auras la possibilité d'échanger avec tes pairs et de comparer vos travaux.
-
 Je répondrai aux questions techniques qui bloquent le lancement.
 
 Tarif : 50 € HT / 60 €TTC
