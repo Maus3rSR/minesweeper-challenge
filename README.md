@@ -1,4 +1,4 @@
-# minesweeper-challenge
+# Minesweeper challenge
 
 ## Objectif - Apprendre le Test Driven Development
 
