@@ -36,33 +36,35 @@ Chaque semaine, je vais proposer des contraintes dans la réalisation de ce chal
 
 ## Comment participer 
 
-### Bronze - Les contraintes
+### Bronze - Dans ton coin
 
 Tu peux simplement faire le challenge dans ton coin, en suivant les consignes écrites ici. C'est un excellent moyen d'apprendre TDD.
-Tu auras accès au discord sans interaction possible afin de recevoir les contraintes hebdomadaires pour rajouter du piquant à ton aventure.
+Tel un fantôme, tu auras accès au discord et aux dicussions mais tu ne pourras pas communiquer.
 
 Tarif : 0 € HT
+
 ### Argent - Interaction avec les pairs
 
-Tu auras la possibilité d'échanger avec tes pairs et de comparer vos travaux.
+Tu auras la possibilité d'échanger avec tes pairs et de communiquer sur tes travaux.
 Je répondrai aux questions techniques qui bloquent le lancement.
 
 Tarif : 50 € HT / 60 €TTC
 
 ### Or - Interaction asynchrone avec moi 
 
-Tu auras accès à un canal dédié où tu pourras me poser des questions en asynchrone. 
+Tu auras la possibilité de m'interpeller (@Jonathan) sur discord pour me poser des questions. 
 
 Tarif : 100 € HT / 120 € TTC
 
-### Diamand - Feedback asynchrone sur ton travail
+### Diamant - Feedback asynchrone sur ton travail
 
-Je te donnerai des feedbacks sur la réalisation de tes exercices (quand c'est pertinent) pour t'aider à avancer encore plus vite
+Je surveillerai spécifiquement la réalisation de ton travail afin de te donner des feedbacks qui t'aideront à avancer encore plus vite
 
 Tarif : 200 € HT / 240 € TTC
+
 ### Platinium - Interaction synchrone
 
-On planifiera une fois par semaine une session de 30 minutes de code pour t'aider à réaliser le challenge. Tu pourras me poser tes questions, coder avec moi ou me raconter ta vie. Je t'écoute pendant 30 minutes.
+On planifiera une fois par semaine une session de 45 minutes ensemble pour t'aider à réaliser le challenge. Tu pourras me poser tes questions, coder avec moi ou me raconter ta vie. Ces 45 minutes te sont consacrées
 
 Tarif : 500 € HT / 600 € TTC
 
