@@ -8,6 +8,7 @@ To achieve this, you will use examples.
 - You must work in a single file, the test file  
 - The examples must appear at the top of your file  
 - Once you think you have enough examples, you can start coding  
+- Make as many commits as possible
 
 ## Reference  
 You can look into the following concepts for the examples:  
