@@ -8,6 +8,7 @@ Pour cela, tu vas utiliser des exemples.
 - Tu ne travailles que dans un seul fichier, celui de ton test
 - Les exemples doivent apparaître en haut de ton fichier
 - Une fois que tu penses avoir assez d'exemple, tu peux commencer à coder
+- Fais un maximum de commit
 
 
 ## Référence
