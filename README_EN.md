@@ -16,16 +16,16 @@ The goal is to create a `minesweeper` function that solves the Minesweeper game.
 
 Here is a mine grid represented by the following string:
 ```
-..**.
-.....
+.*.**.
+....*.
 ..*...
 ```
 
 The `minesweeper` function should return the following string:
 
 ```
-12**2
-12342
+1*2**2
+1234*2
 01*211
 ```
 
