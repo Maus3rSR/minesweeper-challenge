@@ -5,7 +5,7 @@ In your code, you must demonstrate that you understand what is expected of you. 
 To achieve this, you will use examples.  
 
 ## Conditions  
-- You must work in a single file, the test file  
+- You work in a single file, the one used for your test. It must be named with the current date.
 - The examples must appear at the top of your file  
 - Once you think you have enough examples, you can start coding  
 - Make as many commits as possible
