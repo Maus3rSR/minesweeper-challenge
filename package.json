@@ -1,5 +1,8 @@
 {
   "scripts": {
+    "tdd:step:green": "git gamble --green -- pnpm run test",
+    "tdd:step:red": "git gamble --red -- pnpm run test",
+    "tdd:step:refactor": "git gamble --refactor -- pnpm run test",
     "test": "vitest",
     "test:ui": "vitest --ui"
   },
