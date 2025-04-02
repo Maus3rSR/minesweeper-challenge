@@ -18,18 +18,12 @@ import { describe, expect, it } from "vitest";
  */
 
 function mineSweeperResolver(mineField: string): string {
-  return mineField;
+  return "000000\n000000\n000000";
 }
 
 it("Given a mine field with 0 mines", () => {
-  const mineField = `
-......
-......
-......`;
+  const mineField = `......\n......\n......`;
 
   const resolvedMineField = mineSweeperResolver(mineField);
-  expect(resolvedMineField).toBe(`
-000000
-000000
-000000`);
+  expect(resolvedMineField).toBe(`000000\n000000\n000000`);
 });
