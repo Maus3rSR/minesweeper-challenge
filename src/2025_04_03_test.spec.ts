@@ -1,7 +1,10 @@
 import { expect, it } from "vitest";
 
 function mineSweeperResolver(mineField: string): string {
-  return mineField.replaceAll(".*", "1*").replaceAll(".", "0");
+  return mineField
+    .replaceAll("*.", "*1")
+    .replaceAll(".*", "1*")
+    .replaceAll(".", "0");
 }
 
 /**
@@ -22,6 +25,7 @@ it.each([
   [".", "0"],
   ["..", "00"],
   [".*", "1*"],
+  ["*.", "*1"],
 ])("Given mine field %i should resolve as %i", (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
