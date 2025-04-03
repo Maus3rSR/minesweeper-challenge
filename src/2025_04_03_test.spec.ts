@@ -1,11 +1,23 @@
 import { expect, it } from "vitest";
 
 function mineSweeperResolver(mineField: string): string {
-  return mineField
-    .replaceAll("*.*", "*2*")
-    .replaceAll("*.", "*1")
-    .replaceAll(".*", "1*")
-    .replaceAll(".", "0");
+  const mineFieldList = mineField.split("");
+
+  return mineFieldList
+    .map((cell, index) => {
+      if (cell === "*") return cell;
+
+      const previous = mineFieldList[index - 1];
+      const next = mineFieldList[index + 1];
+
+      let mineCount = 0;
+
+      if (previous === "*") mineCount++;
+      if (next === "*") mineCount++;
+
+      return mineCount.toString();
+    })
+    .join("");
 }
 
 /**
