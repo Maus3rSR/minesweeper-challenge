@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "tdd:step:green": "git gamble --green -- pnpm run test:once",
-    "tdd:step:red": "git gamble --red -- pnpm run test:once",
-    "tdd:step:refactor": "git gamble --refactor -- pnpm run test:once",
+    "tdd:green": "git gamble --green -- pnpm run test:once",
+    "tdd:red": "git gamble --red -- pnpm run test:once",
+    "tdd:refactor": "git gamble --refactor -- pnpm run test:once",
     "test": "vitest",
     "test:once": "vitest run",
     "test:ui": "vitest --ui"
