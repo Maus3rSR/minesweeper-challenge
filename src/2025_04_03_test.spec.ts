@@ -9,4 +9,5 @@ import { expect, it } from "vitest";
  *      .*     resolve as    1*
  *      *.     resolve as    *1
  *      **     resolve as    **
+ *      .*.    resolve as    1*1
  */
