@@ -1,5 +1,17 @@
 import { expect, it } from "vitest";
 
+function convertCellToMineCount(
+  previousCell: string,
+  nextCell: string
+): string {
+  let mineCount = 0;
+
+  if (previousCell === "*") mineCount++;
+  if (nextCell === "*") mineCount++;
+
+  return mineCount.toString();
+}
+
 function mineSweeperResolver(mineField: string): string {
   const mineFieldList = mineField.split("");
 
@@ -7,15 +19,10 @@ function mineSweeperResolver(mineField: string): string {
     .map((cell, index) => {
       if (cell === "*") return cell;
 
-      const previous = mineFieldList[index - 1];
-      const next = mineFieldList[index + 1];
-
-      let mineCount = 0;
-
-      if (previous === "*") mineCount++;
-      if (next === "*") mineCount++;
-
-      return mineCount.toString();
+      return convertCellToMineCount(
+        mineFieldList[index - 1],
+        mineFieldList[index + 1]
+      );
     })
     .join("");
 }
