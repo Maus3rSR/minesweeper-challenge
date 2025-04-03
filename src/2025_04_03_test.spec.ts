@@ -11,4 +11,5 @@ import { expect, it } from "vitest";
  *      **     resolve as    **
  *      .*.    resolve as    1*1
  *      *.*    resolve as    *2*
+ *      **.*   resolve as    **2*
  */
