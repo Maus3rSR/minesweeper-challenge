@@ -1,10 +1,7 @@
 import { expect, it } from "vitest";
 
 function mineSweeperResolver(mineField: string): string {
-  if (mineField === ".") return "0";
-  if (mineField === "..") return "00";
-
-  return mineField;
+  return mineField.replaceAll(".", "0");
 }
 
 /**
