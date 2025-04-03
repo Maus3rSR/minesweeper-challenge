@@ -30,6 +30,7 @@ it.each([
   ["*.", "*1"],
   [".*.", "1*1"],
   ["*.*", "*2*"],
+  ["**.*", "**2*"],
 ])("Given mine field %i should resolve as %i", (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
