@@ -2,6 +2,7 @@ import { expect, it } from "vitest";
 
 function mineSweeperResolver(mineField: string): string {
   return mineField
+    .replaceAll("*.*", "*2*")
     .replaceAll("*.", "*1")
     .replaceAll(".*", "1*")
     .replaceAll(".", "0");
@@ -28,6 +29,7 @@ it.each([
   [".*", "1*"],
   ["*.", "*1"],
   [".*.", "1*1"],
+  ["*.*", "*2*"],
 ])("Given mine field %i should resolve as %i", (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
