@@ -4,6 +4,7 @@ import { expect, it } from "vitest";
  * Mine field should resolve as:
  *      *      resolve as    *
  *      .      resolve as    .
+ *      .*     resolve as    1*
  */
 function mineSweeperResolver(mineField: string): string {
   if (mineField === ".") return ".";
