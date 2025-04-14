@@ -10,7 +10,8 @@ function mineSweeperResolver(mineField: string): string {
 it.each([
   ["*", "*"], // Une mine
   [".", "0"], // Une case vide
-  ["..", "00"], // Deux cases vides
+  ["..", "00"], // Une ligne vide
+  ["**", "**"], // Une ligne de deux mines
 ])("Given mine field %i should resolve as %i", (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
