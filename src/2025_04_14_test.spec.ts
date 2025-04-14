@@ -14,6 +14,6 @@ it.each([
   ["..", "00"], // Une ligne vide
   ["...", "000"], // Une ligne vide
   ["**", "**"], // Une ligne de deux mines
-])("Given mine field %i should resolve as %i", (mineField, expectedResolve) => {
+])("Given mine field %s should resolve as %s", (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
