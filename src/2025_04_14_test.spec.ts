@@ -8,8 +8,8 @@ function mineSweeperResolver(mineField: string): string {
   let resolvedMineField = "";
 
   if (mineField[0] + mineField[1] + mineField[2] === "***")
-    resolvedMineField = "***";
-  else if (mineField[0] + mineField[1] === "**") resolvedMineField = "**";
+    resolvedMineField = "*" + "*" + "*";
+  else if (mineField[0] + mineField[1] === "**") resolvedMineField = "*" + "*";
   else if (mineField[0] === "*") resolvedMineField = "*";
   else if (mineField[0] + mineField[1] + mineField[2] === "...")
     resolvedMineField =
