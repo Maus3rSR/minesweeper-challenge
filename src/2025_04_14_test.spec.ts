@@ -1,8 +1,8 @@
 import { expect, it } from "vitest";
 
 function resolveMineCase(
-  previousMineValue: string | undefined,
-  mineValue: string
+  mineValue: string,
+  previousMineValue: string | undefined
 ) {
   if (previousMineValue === "*") {
     return mineValue === "." ? "1" : "*";
@@ -15,7 +15,7 @@ function mineSweeperResolver(mineField: string): string {
   let i = 0;
 
   while (mineField[i]) {
-    resolvedMineField += resolveMineCase(mineField[i - 1], mineField[i]);
+    resolvedMineField += resolveMineCase(mineField[i], mineField[i - 1]);
     i++;
   }
 
