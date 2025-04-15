@@ -2,11 +2,17 @@ import { expect, it } from "vitest";
 
 function resolveMineCase(
   mineValue: string,
-  previousMineValue: string | undefined
+  previousMineValue: string | undefined,
+  nextMineValue: string | undefined
 ) {
   if (previousMineValue === "*") {
     return mineValue === "." ? "1" : "*";
   }
+
+  if (nextMineValue === "*") {
+    return mineValue === "." ? "1" : "*";
+  }
+
   return mineValue === "." ? "0" : "*";
 }
 
@@ -15,7 +21,11 @@ function mineSweeperResolver(mineField: string): string {
   let i = 0;
 
   while (mineField[i]) {
-    resolvedMineField += resolveMineCase(mineField[i], mineField[i - 1]);
+    resolvedMineField += resolveMineCase(
+      mineField[i],
+      mineField[i - 1],
+      mineField[i + 1]
+    );
     i++;
   }
 
@@ -29,6 +39,7 @@ it.each([
   ["...", "000"], // Une ligne vide
   ["**", "**"], // Une ligne de mines
   ["*.", "*1"], // Une mine à gauche
+  [".*", "1*"], // Une mine à droite
 ])("Given mine field %s should resolve as %s", (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
