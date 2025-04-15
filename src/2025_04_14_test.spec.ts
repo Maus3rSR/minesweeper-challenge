@@ -6,21 +6,11 @@ function resolveMineCase(mineValue: string) {
 
 function mineSweeperResolver(mineField: string): string {
   let resolvedMineField = "";
-
   let i = 0;
 
   while (mineField[i]) {
-    if (mineField[i] === "*")
-      resolvedMineField += resolveMineCase(mineField[i]);
+    resolvedMineField += resolveMineCase(mineField[i]);
     i++;
-  }
-
-  let j = 0;
-
-  while (mineField[j]) {
-    if (mineField[j] === ".")
-      resolvedMineField += resolveMineCase(mineField[j]);
-    j++;
   }
 
   return resolvedMineField;
