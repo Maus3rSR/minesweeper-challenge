@@ -6,7 +6,7 @@ function resolveMineField() {
 
 function mineSweeperResolver(mineField: string): string {
   if (mineField === ".") return resolveMineField();
-  if (mineField === "." + ".") return resolveMineField() + resolveMineField();
+  if (mineField === "..") return resolveMineField() + resolveMineField();
   if (mineField === "...")
     return resolveMineField() + resolveMineField() + resolveMineField();
 
