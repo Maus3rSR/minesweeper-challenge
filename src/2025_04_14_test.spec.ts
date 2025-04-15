@@ -11,16 +11,9 @@ function mineSweeperResolver(mineField: string): string {
   if (mineField[1] === "*") resolvedMineField += resolveMineCase(mineField[1]);
   if (mineField[2] === "*") resolvedMineField += resolveMineCase(mineField[2]);
 
-  if (mineField[0] + mineField[1] + mineField[2] === "...")
-    resolvedMineField +=
-      resolveMineCase(mineField[0]) +
-      resolveMineCase(mineField[1]) +
-      resolveMineCase(mineField[2]);
-  else if (mineField[0] + mineField[1] === "..")
-    resolvedMineField +=
-      resolveMineCase(mineField[0]) + resolveMineCase(mineField[1]);
-  else if (mineField[0] === ".")
-    resolvedMineField += resolveMineCase(mineField[0]);
+  if (mineField[0] === ".") resolvedMineField += resolveMineCase(mineField[0]);
+  if (mineField[1] === ".") resolvedMineField += resolveMineCase(mineField[1]);
+  if (mineField[2] === ".") resolvedMineField += resolveMineCase(mineField[2]);
 
   return resolvedMineField;
 }
