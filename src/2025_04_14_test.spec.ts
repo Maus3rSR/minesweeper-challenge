@@ -1,9 +1,14 @@
 import { expect, it } from "vitest";
 
+function resolveMineField() {
+  return "0";
+}
+
 function mineSweeperResolver(mineField: string): string {
-  if (mineField === ".") return "0";
-  if (mineField === "..") return "0" + "0";
-  if (mineField === "...") return "0" + "0" + "0";
+  if (mineField === ".") return resolveMineField();
+  if (mineField === "." + ".") return resolveMineField() + resolveMineField();
+  if (mineField === "...")
+    return resolveMineField() + resolveMineField() + resolveMineField();
 
   return mineField;
 }
