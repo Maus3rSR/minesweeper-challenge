@@ -5,10 +5,11 @@ function resolveMineField() {
 }
 
 function mineSweeperResolver(mineField: string): string {
-  if (mineField === "...")
+  if (mineField[0] + mineField[1] + mineField[2] === "...")
     return resolveMineField() + resolveMineField() + resolveMineField();
-  if (mineField === "..") return resolveMineField() + resolveMineField();
-  if (mineField === ".") return resolveMineField();
+  if (mineField[0] + mineField[1] === "..")
+    return resolveMineField() + resolveMineField();
+  if (mineField[0] === ".") return resolveMineField();
 
   return mineField;
 }
