@@ -9,9 +9,11 @@ function mineSweeperResolver(mineField: string): string {
 
   let i = 0;
 
-  if (mineField[0] === "*") resolvedMineField += resolveMineCase(mineField[0]);
-  if (mineField[1] === "*") resolvedMineField += resolveMineCase(mineField[1]);
-  if (mineField[2] === "*") resolvedMineField += resolveMineCase(mineField[2]);
+  while (mineField[i]) {
+    if (mineField[i] === "*")
+      resolvedMineField += resolveMineCase(mineField[i]);
+    i++;
+  }
 
   if (mineField[0] === ".") resolvedMineField += resolveMineCase(mineField[0]);
   if (mineField[1] === ".") resolvedMineField += resolveMineCase(mineField[1]);
