@@ -5,13 +5,20 @@ function resolveMineCase() {
 }
 
 function mineSweeperResolver(mineField: string): string {
-  if (mineField[0] + mineField[1] + mineField[2] === "...")
-    return resolveMineCase() + resolveMineCase() + resolveMineCase();
-  if (mineField[0] + mineField[1] === "..")
-    return resolveMineCase() + resolveMineCase();
-  if (mineField[0] === ".") return resolveMineCase();
+  let resolvedMineField = "";
 
-  return mineField;
+  if (mineField[0] + mineField[1] + mineField[2] === "***")
+    resolvedMineField = "***";
+  else if (mineField[0] + mineField[1] === "**") resolvedMineField = "**";
+  else if (mineField[0] === "*") resolvedMineField = "*";
+  else if (mineField[0] + mineField[1] + mineField[2] === "...")
+    resolvedMineField =
+      resolveMineCase() + resolveMineCase() + resolveMineCase();
+  else if (mineField[0] + mineField[1] === "..")
+    resolvedMineField = resolveMineCase() + resolveMineCase();
+  else if (mineField[0] === ".") resolvedMineField = resolveMineCase();
+
+  return resolvedMineField;
 }
 
 it.each([
