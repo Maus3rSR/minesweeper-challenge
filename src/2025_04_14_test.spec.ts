@@ -1,15 +1,21 @@
 import { expect, it } from "vitest";
 
-function resolveMineCase(
-  mineValue: string,
-  previousMineValue: string | undefined,
-  nextMineValue: string | undefined
-) {
-  if (previousMineValue === "*" || nextMineValue === "*") {
-    return mineValue === "." ? "1" : "*";
+type ResolveMineCaseProps = {
+  mineValueToResolve: string;
+  valueFromLeft: string | undefined;
+  valueFromRight: string | undefined;
+};
+
+function resolveMineCase({
+  mineValueToResolve,
+  valueFromLeft,
+  valueFromRight,
+}: ResolveMineCaseProps) {
+  if (valueFromLeft === "*" || valueFromRight === "*") {
+    return mineValueToResolve === "." ? "1" : "*";
   }
 
-  return mineValue === "." ? "0" : "*";
+  return mineValueToResolve === "." ? "0" : "*";
 }
 
 function mineSweeperResolver(mineField: string): string {
@@ -17,11 +23,12 @@ function mineSweeperResolver(mineField: string): string {
   let i = 0;
 
   while (mineField[i]) {
-    resolvedMineField += resolveMineCase(
-      mineField[i],
-      mineField[i - 1],
-      mineField[i + 1]
-    );
+    resolvedMineField += resolveMineCase({
+      mineValueToResolve: mineField[i],
+      valueFromLeft: mineField[i - 1],
+      valueFromRight: mineField[i + 1],
+    });
+
     i++;
   }
 
