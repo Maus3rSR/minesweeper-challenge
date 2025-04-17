@@ -11,10 +11,7 @@ function resolveMineCase({
   valueFromLeft,
   valueFromRight,
 }: ResolveMineCaseProps) {
-  let mineCount = 1;
-
-  mineCount = valueFromLeft === "*" || valueFromRight === "*" ? 1 : 0;
-
+  const mineCount = valueFromLeft === "*" || valueFromRight === "*" ? 1 : 0;
   return mineValueToResolve === "." ? mineCount : "*";
 }
 
