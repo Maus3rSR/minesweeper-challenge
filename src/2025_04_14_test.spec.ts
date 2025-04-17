@@ -31,24 +31,16 @@ function mineSweeperResolver(mineField: string): string {
       let rightIndex = i + 1;
 
       if (mineField[leftIndex] === "\n") {
-        resolvedMineField += resolveMineCase({
-          mineValueToResolve: mineField[i],
-          valueFromLeft: mineField[leftIndex - 1],
-          valueFromRight: mineField[rightIndex],
-        });
+        leftIndex -= 1;
       } else if (mineField[rightIndex] === "\n") {
-        resolvedMineField += resolveMineCase({
-          mineValueToResolve: mineField[i],
-          valueFromLeft: mineField[leftIndex],
-          valueFromRight: mineField[rightIndex + 1],
-        });
-      } else {
-        resolvedMineField += resolveMineCase({
-          mineValueToResolve: mineField[i],
-          valueFromLeft: mineField[leftIndex],
-          valueFromRight: mineField[rightIndex],
-        });
+        rightIndex += 1;
       }
+
+      resolvedMineField += resolveMineCase({
+        mineValueToResolve: mineField[i],
+        valueFromLeft: mineField[leftIndex],
+        valueFromRight: mineField[rightIndex],
+      });
     }
 
     i++;
