@@ -63,6 +63,7 @@ it.each([
   ["*\n*", "*\n*"], // Deux lignes de mines
   [".\n*", "1\n*"], // Une ligne d'une case avec rien et une ligne d'une case avec une mine
   ["*\n.", "*\n1"], // Une ligne d'une case avec une mine et une ligne d'une case avec rien
-])("Given mine field %s should resolve as %s", (mineField, expectedResolve) => {
+  ["*.\n*.", "*1\n*1"],
+])(`Given mine field %s should resolve as %s`, (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
