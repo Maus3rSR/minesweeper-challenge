@@ -11,7 +11,10 @@ function resolveMineCase({
   valueFromLeft,
   valueFromRight,
 }: ResolveMineCaseProps) {
-  const mineCount = valueFromLeft === "*" || valueFromRight === "*" ? 1 : 0;
+  let mineCount = 0;
+
+  mineCount += valueFromLeft === "*" ? 1 : 0;
+  mineCount += valueFromRight === "*" ? 1 : 0;
 
   return mineValueToResolve === "." ? mineCount : "*";
 }
@@ -41,6 +44,7 @@ it.each([
   ["**", "**"], // Une ligne de mines
   ["*.", "*1"], // Une mine à gauche
   [".*", "1*"], // Une mine à droite
+  ["*.*", "*2*"], // Une mine à gauche et une mine à droite
 ])("Given mine field %s should resolve as %s", (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
