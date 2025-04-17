@@ -11,11 +11,15 @@ function resolveMineCase({
   valueFromLeft,
   valueFromRight,
 }: ResolveMineCaseProps) {
+  let mineCount = 1;
+
   if (valueFromLeft === "*" || valueFromRight === "*") {
-    return mineValueToResolve === "." ? "1" : "*";
+    return mineValueToResolve === "." ? mineCount : "*";
   }
 
-  return mineValueToResolve === "." ? "0" : "*";
+  mineCount = 0;
+
+  return mineValueToResolve === "." ? mineCount : "*";
 }
 
 function mineSweeperResolver(mineField: string): string {
