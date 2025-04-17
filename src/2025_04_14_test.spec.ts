@@ -27,7 +27,13 @@ function mineSweeperResolver(mineField: string): string {
     if (mineField[i] === "\n") {
       resolvedMineField += "\n";
     } else {
-      if (mineField[i + 1] === "\n") {
+      if (mineField[i - 1] === "\n") {
+        resolvedMineField += resolveMineCase({
+          mineValueToResolve: mineField[i],
+          valueFromLeft: mineField[i - 1 - 1],
+          valueFromRight: mineField[i + 1],
+        });
+      } else if (mineField[i + 1] === "\n") {
         resolvedMineField += resolveMineCase({
           mineValueToResolve: mineField[i],
           valueFromLeft: mineField[i - 1],
@@ -61,6 +67,7 @@ it.each([
   [".\n.", "0\n0"], // Deux lignes de cases vides
   ["*\n*", "*\n*"], // Deux lignes de mines
   [".\n*", "1\n*"], // Une ligne d'une case avec rien et une ligne d'une case avec une mine
+  ["*\n.", "*\n1"], // Une ligne d'une case avec une mine et une ligne d'une case avec rien
 ])("Given mine field %s should resolve as %s", (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
