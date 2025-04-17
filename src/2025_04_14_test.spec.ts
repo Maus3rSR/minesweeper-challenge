@@ -11,6 +11,7 @@ function resolveMineCase({
   valueFromLeft,
   valueFromRight,
 }: ResolveMineCaseProps): string {
+  // Did I made one big step here probably? :)
   const mineCount = [valueFromLeft, valueFromRight].includes("*") ? 1 : 0;
   return mineValueToResolve === "." ? mineCount.toString() : "*";
 }
