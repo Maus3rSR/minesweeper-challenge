@@ -5,11 +5,7 @@ function resolveMineCase(
   previousMineValue: string | undefined,
   nextMineValue: string | undefined
 ) {
-  if (previousMineValue === "*") {
-    return mineValue === "." ? "1" : "*";
-  }
-
-  if (nextMineValue === "*") {
+  if (previousMineValue === "*" || nextMineValue === "*") {
     return mineValue === "." ? "1" : "*";
   }
 
