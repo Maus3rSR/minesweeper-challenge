@@ -45,6 +45,7 @@ it.each([
   ["*.", "*1"], // Une mine à gauche
   [".*", "1*"], // Une mine à droite
   ["*.*", "*2*"], // Une mine à gauche et une mine à droite
+  ["*.*.*", "*2*2*"], // Alterner une mine à gauche et une mine à droite d'une case vide
 ])("Given mine field %s should resolve as %s", (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
