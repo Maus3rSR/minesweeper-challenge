@@ -10,10 +10,10 @@ function resolveMineCase({
   mineValueToResolve,
   valueFromLeft,
   valueFromRight,
-}: ResolveMineCaseProps): string {
-  // Did I made one big step here probably? :)
-  const mineCount = [valueFromLeft, valueFromRight].includes("*") ? 1 : 0;
-  return mineValueToResolve === "." ? mineCount.toString() : "*";
+}: ResolveMineCaseProps) {
+  const mineCount = valueFromLeft === "*" || valueFromRight === "*" ? 1 : 0;
+
+  return mineValueToResolve === "." ? mineCount : "*";
 }
 
 function mineSweeperResolver(mineField: string): string {
