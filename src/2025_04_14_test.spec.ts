@@ -27,23 +27,26 @@ function mineSweeperResolver(mineField: string): string {
     if (mineField[i] === "\n") {
       resolvedMineField += "\n";
     } else {
-      if (mineField[i - 1] === "\n") {
+      let leftIndex = i - 1;
+      let rightIndex = i + 1;
+
+      if (mineField[leftIndex] === "\n") {
         resolvedMineField += resolveMineCase({
           mineValueToResolve: mineField[i],
-          valueFromLeft: mineField[i - 1 - 1],
-          valueFromRight: mineField[i + 1],
+          valueFromLeft: mineField[leftIndex - 1],
+          valueFromRight: mineField[rightIndex],
         });
-      } else if (mineField[i + 1] === "\n") {
+      } else if (mineField[rightIndex] === "\n") {
         resolvedMineField += resolveMineCase({
           mineValueToResolve: mineField[i],
-          valueFromLeft: mineField[i - 1],
-          valueFromRight: mineField[i + 1 + 1],
+          valueFromLeft: mineField[leftIndex],
+          valueFromRight: mineField[rightIndex + 1],
         });
       } else {
         resolvedMineField += resolveMineCase({
           mineValueToResolve: mineField[i],
-          valueFromLeft: mineField[i - 1],
-          valueFromRight: mineField[i + 1],
+          valueFromLeft: mineField[leftIndex],
+          valueFromRight: mineField[rightIndex],
         });
       }
     }
