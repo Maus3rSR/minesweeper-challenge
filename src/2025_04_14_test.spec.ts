@@ -10,9 +10,9 @@ function resolveMineCase({
   mineValueToResolve,
   valueFromLeft,
   valueFromRight,
-}: ResolveMineCaseProps) {
+}: ResolveMineCaseProps): string {
   const mineCount = valueFromLeft === "*" || valueFromRight === "*" ? 1 : 0;
-  return mineValueToResolve === "." ? mineCount : "*";
+  return mineValueToResolve === "." ? mineCount.toString() : "*";
 }
 
 function mineSweeperResolver(mineField: string): string {
