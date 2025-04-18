@@ -21,7 +21,7 @@ function resolveMineCase({
 
 function mineSweeperResolver(mineField: string): string {
   const lines = mineField.split("\n");
-  let resolvedMineField = [""];
+  let resolvedMineField = ["", ""];
   let i = 0;
 
   while (lines[0][i]) {
@@ -34,7 +34,23 @@ function mineSweeperResolver(mineField: string): string {
     i++;
   }
 
-  return resolvedMineField[0];
+  if (lines.length === 1) {
+    return resolvedMineField[0];
+  }
+
+  let j = 0;
+
+  while (lines[1][j]) {
+    resolvedMineField[1] += resolveMineCase({
+      mineValueToResolve: mineField[j],
+      valueFromLeft: mineField[j - 1],
+      valueFromRight: mineField[j + 1],
+    });
+
+    j++;
+  }
+
+  return resolvedMineField[0] + "\n" + resolvedMineField[1];
 }
 
 it.each([
@@ -47,7 +63,7 @@ it.each([
   [".*", "1*"], // Une mine à droite
   ["*.*", "*2*"], // Une mine à gauche et une mine à droite
   ["*.*.*", "*2*2*"], // Alterner une mine à gauche et une mine à droite d'une case vide
-  // [".\n.", "0\n0"], // Deux lignes de cases vides
+  [".\n.", "0\n0"], // Deux lignes de cases vides
   // ["*\n*", "*\n*"], // Deux lignes de mines
   // [".\n*", "1\n*"], // Une ligne d'une case avec rien et une ligne d'une case avec une mine
   // ["*\n.", "*\n1"], // Une ligne d'une case avec une mine et une ligne d'une case avec rien
