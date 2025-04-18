@@ -26,15 +26,17 @@ function mineSweeperResolver(mineField: string): string {
   let lineNumber: number;
 
   lineNumber = 0;
-  resolvedMineField[0] = "";
-  while (lines[lineNumber][i]) {
-    resolvedMineField[lineNumber] += resolveMineCase({
-      mineValueToResolve: mineField[i],
-      valueFromLeft: mineField[i - 1],
-      valueFromRight: mineField[i + 1],
-    });
+  if (lines[lineNumber]) {
+    resolvedMineField[0] = "";
+    while (lines[lineNumber][i]) {
+      resolvedMineField[lineNumber] += resolveMineCase({
+        mineValueToResolve: mineField[i],
+        valueFromLeft: mineField[i - 1],
+        valueFromRight: mineField[i + 1],
+      });
 
-    i++;
+      i++;
+    }
   }
 
   i = 0;
