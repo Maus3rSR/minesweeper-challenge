@@ -28,10 +28,8 @@ function resolveMineCase({
     valueFromTop,
   ];
 
-  let x = 0;
   aroundValues.forEach((value) => {
     mineCount += isABomb(value) ? 1 : 0;
-    x += 1;
   });
 
   return mineValueToResolve === "." ? mineCount : "*";
