@@ -5,6 +5,7 @@ type ResolveMineCaseProps = {
   valueFromLeft: string | undefined;
   valueFromRight: string | undefined;
   valueFromBottom: string | undefined;
+  valueFromTop: string | undefined;
 };
 
 function resolveMineCase({
@@ -12,12 +13,14 @@ function resolveMineCase({
   valueFromLeft,
   valueFromRight,
   valueFromBottom,
+  valueFromTop,
 }: ResolveMineCaseProps) {
   let mineCount = 0;
 
   mineCount += valueFromLeft === "*" ? 1 : 0;
   mineCount += valueFromRight === "*" ? 1 : 0;
   mineCount += valueFromBottom === "*" ? 1 : 0;
+  mineCount += valueFromTop === "*" ? 1 : 0;
 
   return mineValueToResolve === "." ? mineCount : "*";
 }
@@ -37,6 +40,7 @@ function mineSweeperResolver(mineField: string): string {
         valueFromLeft: lines[lineNumber][i - 1],
         valueFromRight: lines[lineNumber][i + 1],
         valueFromBottom: lines[lineNumber + 1] && lines[lineNumber + 1][i],
+        valueFromTop: lines[lineNumber - 1] && lines[lineNumber - 1][i],
       });
 
       i++;
@@ -62,7 +66,7 @@ it.each([
   [".\n.", "0\n0"], // Deux lignes de cases vides
   ["*\n*", "*\n*"], // Deux lignes de mines
   [".\n*", "1\n*"], // Une mine en dessous
-  // ["*\n.", "*\n1"], // Une ligne d'une case avec une mine et une ligne d'une case avec rien
+  ["*\n.", "*\n1"], // Une mine au dessus
   // ["*.\n*.", "*1\n*1"],
 ])(`Given mine field %s should resolve as %s`, (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
