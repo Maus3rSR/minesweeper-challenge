@@ -34,20 +34,6 @@ function resolveMineCase({
     x += 1;
   }
 
-  if (aroundValues.length > x) {
-    mineCount += isABomb(aroundValues[x]) ? 1 : 0;
-    x += 1;
-  }
-
-  if (aroundValues.length > x) {
-    mineCount += isABomb(aroundValues[x]) ? 1 : 0;
-    x += 1;
-  }
-
-  if (aroundValues.length > x) {
-    mineCount += isABomb(aroundValues[x]) ? 1 : 0;
-  }
-
   return mineValueToResolve === "." ? mineCount : "*";
 }
 
