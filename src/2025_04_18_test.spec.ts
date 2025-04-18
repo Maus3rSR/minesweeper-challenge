@@ -37,26 +37,22 @@ function mineSweeperResolver(mineField: string): string {
     i++;
   }
 
-  if (lines.length === 1) {
-    return resolvedMineField[lineNumber];
-  }
-
   i = 0;
   lineNumber = 1;
-  resolvedMineField[lineNumber] = "";
-  while (lines[lineNumber][i]) {
-    resolvedMineField[lineNumber] += resolveMineCase({
-      mineValueToResolve: mineField[i],
-      valueFromLeft: mineField[i - 1],
-      valueFromRight: mineField[i + 1],
-    });
+  if (lines[lineNumber]) {
+    resolvedMineField[lineNumber] = "";
+    while (lines[lineNumber][i]) {
+      resolvedMineField[lineNumber] += resolveMineCase({
+        mineValueToResolve: mineField[i],
+        valueFromLeft: mineField[i - 1],
+        valueFromRight: mineField[i + 1],
+      });
 
-    i++;
+      i++;
+    }
   }
 
-  return (
-    resolvedMineField[lineNumber - 1] + "\n" + resolvedMineField[lineNumber]
-  );
+  return resolvedMineField.join("\n");
 }
 
 it.each([
