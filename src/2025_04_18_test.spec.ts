@@ -42,19 +42,6 @@ function mineSweeperResolver(mineField: string): string {
     lineNumber += 1;
   }
 
-  if (lines[lineNumber]) {
-    resolvedMineField[lineNumber] = "";
-    while (lines[lineNumber][i]) {
-      resolvedMineField[lineNumber] += resolveMineCase({
-        mineValueToResolve: mineField[i],
-        valueFromLeft: mineField[i - 1],
-        valueFromRight: mineField[i + 1],
-      });
-
-      i++;
-    }
-  }
-
   return resolvedMineField.join("\n");
 }
 
