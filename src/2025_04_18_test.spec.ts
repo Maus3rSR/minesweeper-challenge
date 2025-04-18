@@ -26,7 +26,7 @@ function mineSweeperResolver(mineField: string): string {
   let i = 0;
   let lineNumber = 0;
 
-  if (lines[lineNumber]) {
+  while (lines[lineNumber]) {
     resolvedMineField[lineNumber] = "";
     while (lines[lineNumber][i]) {
       resolvedMineField[lineNumber] += resolveMineCase({
