@@ -29,17 +29,24 @@ function resolveMineCase({
   ];
 
   let x = 0;
-
-  mineCount += isABomb(aroundValues[x]) ? 1 : 0;
-
-  x += 1;
-  mineCount += isABomb(aroundValues[x]) ? 1 : 0;
+  if (aroundValues[x]) {
+    mineCount += isABomb(aroundValues[x]) ? 1 : 0;
+  }
 
   x += 1;
-  mineCount += isABomb(aroundValues[x]) ? 1 : 0;
+  if (aroundValues[x]) {
+    mineCount += isABomb(aroundValues[x]) ? 1 : 0;
+  }
 
   x += 1;
-  mineCount += isABomb(aroundValues[x]) ? 1 : 0;
+  if (aroundValues[x]) {
+    mineCount += isABomb(aroundValues[x]) ? 1 : 0;
+  }
+
+  x += 1;
+  if (aroundValues[x]) {
+    mineCount += isABomb(aroundValues[x]) ? 1 : 0;
+  }
 
   return mineValueToResolve === "." ? mineCount : "*";
 }
