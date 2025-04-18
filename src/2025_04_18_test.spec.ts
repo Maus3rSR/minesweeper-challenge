@@ -40,7 +40,7 @@ function mineSweeperResolver(mineField: string): string {
   }
 
   i = 0;
-  lineNumber = 1;
+  lineNumber += 1;
 
   if (lines[lineNumber]) {
     resolvedMineField[lineNumber] = "";
