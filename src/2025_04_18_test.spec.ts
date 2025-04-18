@@ -29,22 +29,22 @@ function resolveMineCase({
   ];
 
   let x = 0;
-  if (aroundValues[x]) {
+  if (aroundValues.length > x) {
     mineCount += isABomb(aroundValues[x]) ? 1 : 0;
   }
 
   x += 1;
-  if (aroundValues[x]) {
+  if (aroundValues.length > x) {
     mineCount += isABomb(aroundValues[x]) ? 1 : 0;
   }
 
   x += 1;
-  if (aroundValues[x]) {
+  if (aroundValues.length > x) {
     mineCount += isABomb(aroundValues[x]) ? 1 : 0;
   }
 
   x += 1;
-  if (aroundValues[x]) {
+  if (aroundValues.length > x) {
     mineCount += isABomb(aroundValues[x]) ? 1 : 0;
   }
 
