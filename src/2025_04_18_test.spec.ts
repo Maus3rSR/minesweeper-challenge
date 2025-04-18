@@ -35,7 +35,7 @@ function resolveMineCase({
   x = 1;
   mineCount += isABomb(aroundValues[x]) ? 1 : 0;
 
-  x = 2;
+  x += 1;
   mineCount += isABomb(aroundValues[x]) ? 1 : 0;
 
   x += 1;
