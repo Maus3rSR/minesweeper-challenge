@@ -28,7 +28,9 @@ function resolveMineCase({
     valueFromTop,
   ];
 
-  mineCount += isABomb(aroundValues[0]) ? 1 : 0;
+  let x = 0;
+
+  mineCount += isABomb(aroundValues[x]) ? 1 : 0;
   mineCount += isABomb(aroundValues[1]) ? 1 : 0;
   mineCount += isABomb(aroundValues[2]) ? 1 : 0;
   mineCount += isABomb(aroundValues[3]) ? 1 : 0;
