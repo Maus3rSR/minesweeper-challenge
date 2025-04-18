@@ -20,29 +20,21 @@ function resolveMineCase({
 }
 
 function mineSweeperResolver(mineField: string): string {
-  let resolvedMineField = "";
+  const lines = mineField.split("\n");
+  let resolvedMineField = [""];
   let i = 0;
 
-  while (mineField[i]) {
-    let leftIndex = i - 1;
-    let rightIndex = i + 1;
-
-    if (mineField[leftIndex] === "\n") {
-      leftIndex -= 1;
-    } else if (mineField[rightIndex] === "\n") {
-      rightIndex += 1;
-    }
-
-    resolvedMineField += resolveMineCase({
+  while (lines[0][i]) {
+    resolvedMineField[0] += resolveMineCase({
       mineValueToResolve: mineField[i],
-      valueFromLeft: mineField[leftIndex],
-      valueFromRight: mineField[rightIndex],
+      valueFromLeft: mineField[i - 1],
+      valueFromRight: mineField[i + 1],
     });
 
     i++;
   }
 
-  return resolvedMineField;
+  return resolvedMineField[0];
 }
 
 it.each([
