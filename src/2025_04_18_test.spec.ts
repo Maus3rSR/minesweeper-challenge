@@ -70,6 +70,7 @@ it.each([
   ["*.\n*.", "*1\n*1"], // Deux lignes avec une mine à gauche
   [".*\n.*", "1*\n1*"], // Deux lignes avec une mine à droite
   ["*.\n.*", "*2\n2*"], // Une ligne avec une mine à gauche et une ligne avec une mine à droite
+  ["*.*\n*.*", "*2*\n*2*"], // Deux lignes avec une mine à chaque extrémité
 ])(`Given mine field %s should resolve as %s`, (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
