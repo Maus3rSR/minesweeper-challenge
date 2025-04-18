@@ -21,10 +21,17 @@ function resolveMineCase({
 }: ResolveMineCaseProps) {
   let mineCount = 0;
 
-  mineCount += isABomb(valueFromLeft) ? 1 : 0;
-  mineCount += isABomb(valueFromRight) ? 1 : 0;
-  mineCount += isABomb(valueFromBottom) ? 1 : 0;
-  mineCount += isABomb(valueFromTop) ? 1 : 0;
+  const aroundValues = [
+    valueFromLeft,
+    valueFromRight,
+    valueFromBottom,
+    valueFromTop,
+  ];
+
+  mineCount += isABomb(aroundValues[0]) ? 1 : 0;
+  mineCount += isABomb(aroundValues[1]) ? 1 : 0;
+  mineCount += isABomb(aroundValues[2]) ? 1 : 0;
+  mineCount += isABomb(aroundValues[3]) ? 1 : 0;
 
   return mineValueToResolve === "." ? mineCount : "*";
 }
