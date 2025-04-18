@@ -8,6 +8,10 @@ type ResolveMineCaseProps = {
   valueFromTop: string | undefined;
 };
 
+function isABomb(char: string | undefined) {
+  return char === "*";
+}
+
 function resolveMineCase({
   mineValueToResolve,
   valueFromLeft,
@@ -17,10 +21,10 @@ function resolveMineCase({
 }: ResolveMineCaseProps) {
   let mineCount = 0;
 
-  mineCount += valueFromLeft === "*" ? 1 : 0;
-  mineCount += valueFromRight === "*" ? 1 : 0;
-  mineCount += valueFromBottom === "*" ? 1 : 0;
-  mineCount += valueFromTop === "*" ? 1 : 0;
+  mineCount += isABomb(valueFromLeft) ? 1 : 0;
+  mineCount += isABomb(valueFromRight) ? 1 : 0;
+  mineCount += isABomb(valueFromBottom) ? 1 : 0;
+  mineCount += isABomb(valueFromTop) ? 1 : 0;
 
   return mineValueToResolve === "." ? mineCount : "*";
 }
