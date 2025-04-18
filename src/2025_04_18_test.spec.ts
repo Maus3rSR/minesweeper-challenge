@@ -23,10 +23,12 @@ function mineSweeperResolver(mineField: string): string {
   const lines = mineField.split("\n");
   let resolvedMineField: string[] = [];
   let i = 0;
+  let lineNumber: number;
 
+  lineNumber = 0;
   resolvedMineField[0] = "";
-  while (lines[0][i]) {
-    resolvedMineField[0] += resolveMineCase({
+  while (lines[lineNumber][i]) {
+    resolvedMineField[lineNumber] += resolveMineCase({
       mineValueToResolve: mineField[i],
       valueFromLeft: mineField[i - 1],
       valueFromRight: mineField[i + 1],
@@ -36,13 +38,14 @@ function mineSweeperResolver(mineField: string): string {
   }
 
   if (lines.length === 1) {
-    return resolvedMineField[0];
+    return resolvedMineField[lineNumber];
   }
 
   i = 0;
-  resolvedMineField[1] = "";
-  while (lines[1][i]) {
-    resolvedMineField[1] += resolveMineCase({
+  lineNumber = 1;
+  resolvedMineField[lineNumber] = "";
+  while (lines[lineNumber][i]) {
+    resolvedMineField[lineNumber] += resolveMineCase({
       mineValueToResolve: mineField[i],
       valueFromLeft: mineField[i - 1],
       valueFromRight: mineField[i + 1],
@@ -51,7 +54,9 @@ function mineSweeperResolver(mineField: string): string {
     i++;
   }
 
-  return resolvedMineField[0] + "\n" + resolvedMineField[1];
+  return (
+    resolvedMineField[lineNumber - 1] + "\n" + resolvedMineField[lineNumber]
+  );
 }
 
 it.each([
