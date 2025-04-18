@@ -29,10 +29,10 @@ function resolveMineCase({
   ];
 
   let x = 0;
-  while (aroundValues.length > x) {
-    mineCount += isABomb(aroundValues[x]) ? 1 : 0;
+  aroundValues.forEach((value) => {
+    mineCount += isABomb(value) ? 1 : 0;
     x += 1;
-  }
+  });
 
   return mineValueToResolve === "." ? mineCount : "*";
 }
