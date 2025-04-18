@@ -21,8 +21,6 @@ function resolveMineCase({
 }: ResolveMineCaseProps) {
   if (mineValueToResolve === "*") return mineValueToResolve;
 
-  let mineCount = 0;
-
   const aroundValues = [
     valueFromLeft,
     valueFromRight,
@@ -30,11 +28,9 @@ function resolveMineCase({
     valueFromTop,
   ];
 
-  aroundValues.forEach((value) => {
-    mineCount += isABomb(value) ? 1 : 0;
-  });
-
-  return mineCount;
+  return aroundValues.reduce((count, value) => {
+    return count + (isABomb(value) ? 1 : 0);
+  }, 0);
 }
 
 function mineSweeperResolver(mineField: string): string {
