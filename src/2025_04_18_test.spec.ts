@@ -19,6 +19,8 @@ function resolveMineCase({
   valueFromBottom,
   valueFromTop,
 }: ResolveMineCaseProps) {
+  if (mineValueToResolve === "*") return mineValueToResolve;
+
   let mineCount = 0;
 
   const aroundValues = [
@@ -32,7 +34,7 @@ function resolveMineCase({
     mineCount += isABomb(value) ? 1 : 0;
   });
 
-  return mineValueToResolve === "." ? mineCount : "*";
+  return mineCount;
 }
 
 function mineSweeperResolver(mineField: string): string {
