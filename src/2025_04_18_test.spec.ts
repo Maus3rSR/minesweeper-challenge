@@ -56,7 +56,7 @@ it.each([
   ["*.*", "*2*"], // Une mine à gauche et une mine à droite
   ["*.*.*", "*2*2*"], // Alterner une mine à gauche et une mine à droite d'une case vide
   [".\n.", "0\n0"], // Deux lignes de cases vides
-  // ["*\n*", "*\n*"], // Deux lignes de mines
+  ["*\n*", "*\n*"], // Deux lignes de mines
   // [".\n*", "1\n*"], // Une ligne d'une case avec rien et une ligne d'une case avec une mine
   // ["*\n.", "*\n1"], // Une ligne d'une case avec une mine et une ligne d'une case avec rien
   // ["*.\n*.", "*1\n*1"],
