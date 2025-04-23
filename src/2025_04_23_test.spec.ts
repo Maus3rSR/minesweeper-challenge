@@ -1,7 +1,7 @@
 import { expect, it } from "vitest";
 
 type ResolveMineCaseProps = {
-  mineValueToResolve: string;
+  caseToResolve: string;
   caseAtLeft: string | undefined;
   caseAtRight: string | undefined;
   caseAtBottom: string | undefined;
@@ -17,7 +17,7 @@ function isABomb(char: string | undefined) {
 }
 
 function resolveMineCase({
-  mineValueToResolve,
+  caseToResolve,
   caseAtLeft,
   caseAtRight,
   caseAtBottom,
@@ -27,7 +27,7 @@ function resolveMineCase({
   caseAtBottomLeft,
   caseAtBottomRight,
 }: ResolveMineCaseProps) {
-  if (mineValueToResolve === "*") return mineValueToResolve;
+  if (caseToResolve === "*") return caseToResolve;
 
   const aroundValues = [
     caseAtLeft,
@@ -56,7 +56,7 @@ function mineSweeperResolver(mineField: string): string {
     resolvedMineField[lineNumber] = "";
     while (lines[lineNumber][i]) {
       resolvedMineField[lineNumber] += resolveMineCase({
-        mineValueToResolve: lines[lineNumber][i],
+        caseToResolve: lines[lineNumber][i],
         caseAtLeft: lines[lineNumber][i - 1],
         caseAtRight: lines[lineNumber][i + 1],
         caseAtBottom: lines[lineNumber + 1] && lines[lineNumber + 1][i],
