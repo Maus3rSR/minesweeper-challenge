@@ -6,7 +6,7 @@ type ResolveMineCaseProps = {
   caseAtRight: string | undefined;
   caseAtBottom: string | undefined;
   caseAtTop: string | undefined;
-  caseAtLeftTop: string | undefined;
+  caseAtTopLeft: string | undefined;
   caseAtTopRight: string | undefined;
   caseAtBottomLeft: string | undefined;
   caseAtBottomRight: string | undefined;
@@ -22,7 +22,7 @@ function resolveMineCase({
   caseAtRight,
   caseAtBottom,
   caseAtTop,
-  caseAtLeftTop,
+  caseAtTopLeft,
   caseAtTopRight,
   caseAtBottomLeft,
   caseAtBottomRight,
@@ -34,7 +34,7 @@ function resolveMineCase({
     caseAtRight,
     caseAtBottom,
     caseAtTop,
-    caseAtLeftTop,
+    caseAtTopLeft,
     caseAtTopRight,
     caseAtBottomLeft,
     caseAtBottomRight,
@@ -61,7 +61,7 @@ function mineSweeperResolver(mineField: string): string {
         caseAtRight: lines[lineNumber][i + 1],
         caseAtBottom: lines[lineNumber + 1] && lines[lineNumber + 1][i],
         caseAtTop: lines[lineNumber - 1] && lines[lineNumber - 1][i],
-        caseAtLeftTop: lines[lineNumber - 1] && lines[lineNumber - 1][i - 1],
+        caseAtTopLeft: lines[lineNumber - 1] && lines[lineNumber - 1][i - 1],
         caseAtTopRight: lines[lineNumber - 1] && lines[lineNumber - 1][i + 1],
         caseAtBottomLeft: lines[lineNumber + 1] && lines[lineNumber + 1][i - 1],
         caseAtBottomRight:
