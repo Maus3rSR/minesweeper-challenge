@@ -2,11 +2,11 @@ import { expect, it } from "vitest";
 
 type ResolveMineCaseProps = {
   mineValueToResolve: string;
-  valueFromLeft: string | undefined;
-  valueFromRight: string | undefined;
-  valueFromBottom: string | undefined;
-  valueFromTop: string | undefined;
-  valueFromLeftTop: string | undefined;
+  caseAtLeft: string | undefined;
+  caseAtRight: string | undefined;
+  caseAtBottom: string | undefined;
+  caseAtTop: string | undefined;
+  caseAtLeftTop: string | undefined;
 };
 
 function isABomb(char: string | undefined) {
@@ -15,20 +15,20 @@ function isABomb(char: string | undefined) {
 
 function resolveMineCase({
   mineValueToResolve,
-  valueFromLeft,
-  valueFromRight,
-  valueFromBottom,
-  valueFromTop,
-  valueFromLeftTop,
+  caseAtLeft,
+  caseAtRight,
+  caseAtBottom,
+  caseAtTop,
+  caseAtLeftTop,
 }: ResolveMineCaseProps) {
   if (mineValueToResolve === "*") return mineValueToResolve;
 
   const aroundValues = [
-    valueFromLeft,
-    valueFromRight,
-    valueFromBottom,
-    valueFromTop,
-    valueFromLeftTop,
+    caseAtLeft,
+    caseAtRight,
+    caseAtBottom,
+    caseAtTop,
+    caseAtLeftTop,
   ];
 
   return aroundValues.reduce((count, value) => {
@@ -48,11 +48,11 @@ function mineSweeperResolver(mineField: string): string {
     while (lines[lineNumber][i]) {
       resolvedMineField[lineNumber] += resolveMineCase({
         mineValueToResolve: lines[lineNumber][i],
-        valueFromLeft: lines[lineNumber][i - 1],
-        valueFromRight: lines[lineNumber][i + 1],
-        valueFromBottom: lines[lineNumber + 1] && lines[lineNumber + 1][i],
-        valueFromTop: lines[lineNumber - 1] && lines[lineNumber - 1][i],
-        valueFromLeftTop: lines[lineNumber - 1] && lines[lineNumber - 1][i - 1],
+        caseAtLeft: lines[lineNumber][i - 1],
+        caseAtRight: lines[lineNumber][i + 1],
+        caseAtBottom: lines[lineNumber + 1] && lines[lineNumber + 1][i],
+        caseAtTop: lines[lineNumber - 1] && lines[lineNumber - 1][i],
+        caseAtLeftTop: lines[lineNumber - 1] && lines[lineNumber - 1][i - 1],
       });
 
       i++;
