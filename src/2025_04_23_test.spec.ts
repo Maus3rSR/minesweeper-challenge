@@ -99,7 +99,7 @@ it.each([
   ["*.\n*.", "*2\n*2"], // Deux lignes avec une mine à gauche
   [".*\n.*", "2*\n2*"], // Deux lignes avec une mine à droite
   ["*.\n.*", "*2\n2*"], // Une ligne avec une mine à gauche et une ligne avec une mine à droite
-  // ["*.*\n*.*", "*2*\n*2*"], // Deux lignes avec une mine à chaque extrémité
+  ["*.*\n*.*", "*4*\n*4*"], // Deux lignes avec une mine à chaque extrémité
   // ["...\n.*.\n...", "010\n1*1\n010"], // Trois lignes avec une mine centrale
   // [".*...\n...**\n***.*\n*..*.", "1*111\n122**\n***4*\n*22*2"], // Exemple complexe de vérification
 ])(`Given mine field %s should resolve as %s`, (mineField, expectedResolve) => {
