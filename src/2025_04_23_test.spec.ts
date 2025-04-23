@@ -8,6 +8,7 @@ type ResolveMineCaseProps = {
   caseAtTop: string | undefined;
   caseAtLeftTop: string | undefined;
   caseAtTopRight: string | undefined;
+  caseAtBottomLeft: string | undefined;
 };
 
 function isABomb(char: string | undefined) {
@@ -22,6 +23,7 @@ function resolveMineCase({
   caseAtTop,
   caseAtLeftTop,
   caseAtTopRight,
+  caseAtBottomLeft,
 }: ResolveMineCaseProps) {
   if (mineValueToResolve === "*") return mineValueToResolve;
 
@@ -32,6 +34,7 @@ function resolveMineCase({
     caseAtTop,
     caseAtLeftTop,
     caseAtTopRight,
+    caseAtBottomLeft,
   ];
 
   return aroundValues.reduce((count, value) => {
@@ -57,6 +60,7 @@ function mineSweeperResolver(mineField: string): string {
         caseAtTop: lines[lineNumber - 1] && lines[lineNumber - 1][i],
         caseAtLeftTop: lines[lineNumber - 1] && lines[lineNumber - 1][i - 1],
         caseAtTopRight: lines[lineNumber - 1] && lines[lineNumber - 1][i + 1],
+        caseAtBottomLeft: lines[lineNumber + 1] && lines[lineNumber + 1][i - 1],
       });
 
       i++;
@@ -85,6 +89,7 @@ it.each([
   ["*\n.", "*\n1"], // Une mine au dessus
   ["*.\n..", "*1\n11"], // Une mine en diagonale haute-gauche
   [".*\n..", "1*\n11"], // Une mine en diagonale haute-droite
+  ["..\n*.", "11\n*1"], // Une mine en diagonale bas-gauche
   // ["*.\n*.", "*1\n*1"], // Deux lignes avec une mine à gauche
   // [".*\n.*", "1*\n1*"], // Deux lignes avec une mine à droite
   // ["*.\n.*", "*2\n2*"], // Une ligne avec une mine à gauche et une ligne avec une mine à droite
