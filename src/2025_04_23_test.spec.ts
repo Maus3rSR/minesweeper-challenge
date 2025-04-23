@@ -2,45 +2,26 @@ import { expect, it } from "vitest";
 
 type ResolveMineCaseProps = {
   caseToResolve: string;
-  caseAtLeft: string | undefined;
-  caseAtRight: string | undefined;
-  caseAtBottom: string | undefined;
-  caseAtTop: string | undefined;
-  caseAtTopLeft: string | undefined;
-  caseAtTopRight: string | undefined;
-  caseAtBottomLeft: string | undefined;
-  caseAtBottomRight: string | undefined;
+  casesAround: {
+    atLeft: string | undefined;
+    atRight: string | undefined;
+    atBottom: string | undefined;
+    atTop: string | undefined;
+    atTopLeft: string | undefined;
+    atTopRight: string | undefined;
+    atBottomLeft: string | undefined;
+    atBottomRight: string | undefined;
+  };
 };
 
 function isABomb(char: string | undefined) {
   return char === "*";
 }
 
-function resolveMineCase({
-  caseToResolve,
-  caseAtLeft,
-  caseAtRight,
-  caseAtBottom,
-  caseAtTop,
-  caseAtTopLeft,
-  caseAtTopRight,
-  caseAtBottomLeft,
-  caseAtBottomRight,
-}: ResolveMineCaseProps) {
+function resolveMineCase({ caseToResolve, casesAround }: ResolveMineCaseProps) {
   if (caseToResolve === "*") return caseToResolve;
 
-  const aroundValues = [
-    caseAtLeft,
-    caseAtRight,
-    caseAtBottom,
-    caseAtTop,
-    caseAtTopLeft,
-    caseAtTopRight,
-    caseAtBottomLeft,
-    caseAtBottomRight,
-  ];
-
-  return aroundValues.reduce((count, value) => {
+  return Object.values(casesAround).reduce((count, value) => {
     return count + (isABomb(value) ? 1 : 0);
   }, 0);
 }
@@ -57,15 +38,16 @@ function mineSweeperResolver(mineField: string): string {
     while (lines[lineNumber][i]) {
       resolvedMineField[lineNumber] += resolveMineCase({
         caseToResolve: lines[lineNumber][i],
-        caseAtLeft: lines[lineNumber][i - 1],
-        caseAtRight: lines[lineNumber][i + 1],
-        caseAtBottom: lines[lineNumber + 1] && lines[lineNumber + 1][i],
-        caseAtTop: lines[lineNumber - 1] && lines[lineNumber - 1][i],
-        caseAtTopLeft: lines[lineNumber - 1] && lines[lineNumber - 1][i - 1],
-        caseAtTopRight: lines[lineNumber - 1] && lines[lineNumber - 1][i + 1],
-        caseAtBottomLeft: lines[lineNumber + 1] && lines[lineNumber + 1][i - 1],
-        caseAtBottomRight:
-          lines[lineNumber + 1] && lines[lineNumber + 1][i + 1],
+        casesAround: {
+          atLeft: lines[lineNumber][i - 1],
+          atRight: lines[lineNumber][i + 1],
+          atBottom: lines[lineNumber + 1] && lines[lineNumber + 1][i],
+          atTop: lines[lineNumber - 1] && lines[lineNumber - 1][i],
+          atTopLeft: lines[lineNumber - 1] && lines[lineNumber - 1][i - 1],
+          atTopRight: lines[lineNumber - 1] && lines[lineNumber - 1][i + 1],
+          atBottomLeft: lines[lineNumber + 1] && lines[lineNumber + 1][i - 1],
+          atBottomRight: lines[lineNumber + 1] && lines[lineNumber + 1][i + 1],
+        },
       });
 
       i++;
