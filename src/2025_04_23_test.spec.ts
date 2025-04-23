@@ -101,7 +101,7 @@ it.each([
   ["*.\n.*", "*2\n2*"], // Une ligne avec une mine à gauche et une ligne avec une mine à droite
   ["*.*\n*.*", "*4*\n*4*"], // Deux lignes avec une mine à chaque extrémité
   ["...\n.*.\n...", "111\n1*1\n111"], // Trois lignes avec une mine centrale
-  // [".*...\n...**\n***.*\n*..*.", "1*111\n122**\n***4*\n*22*2"], // Exemple complexe de vérification
+  [".*...\n...**\n***.*\n*..*.", "1*222\n344**\n***5*\n*43*2"], // Exemple complexe de vérification
 ])(`Given mine field %s should resolve as %s`, (mineField, expectedResolve) => {
   expect(mineSweeperResolver(mineField)).toBe(expectedResolve);
 });
