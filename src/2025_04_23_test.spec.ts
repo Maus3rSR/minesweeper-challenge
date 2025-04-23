@@ -96,7 +96,7 @@ it.each([
   [".*\n..", "1*\n11"], // Une mine en diagonale haute-droite
   ["..\n*.", "11\n*1"], // Une mine en diagonale bas-gauche
   ["..\n.*", "11\n1*"], // Une mine en diagonale bas-droite
-  // ["*.\n*.", "*1\n*1"], // Deux lignes avec une mine à gauche
+  ["*.\n*.", "*2\n*2"], // Deux lignes avec une mine à gauche
   // [".*\n.*", "1*\n1*"], // Deux lignes avec une mine à droite
   // ["*.\n.*", "*2\n2*"], // Une ligne avec une mine à gauche et une ligne avec une mine à droite
   // ["*.*\n*.*", "*2*\n*2*"], // Deux lignes avec une mine à chaque extrémité
